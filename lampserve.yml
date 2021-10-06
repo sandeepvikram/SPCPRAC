@@ -16,13 +16,9 @@
       apt:
         name: libapache2-mod-php
         state: present 
-    - name: install php-mysql
-      apt:
-        name: php-mysql
-        state: presnt
     - name: install php-cli-y
       apt:
-        name: php-cli-y
+        name: php-cli
         state: present 
     - name: create a file
       ansible.builtin.copy:
@@ -33,5 +29,5 @@
         name: apache2
         enabled: yes
         state: started
-                
+
  
