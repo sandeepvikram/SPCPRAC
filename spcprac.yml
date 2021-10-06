@@ -31,7 +31,11 @@
       ansible.builtin.copy:
         src: springpetclinic.service
         dest: /etc/systemd/system/springpetclinic.service
-        
+    - name: Enable and start springpetclinic srvice 
+      ansible.builtin.systemd:
+        name: springpetclinic.service
+        enabled: yes
+        state: started    
 
                 
 
