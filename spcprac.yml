@@ -1,6 +1,6 @@
 ---
 - name: SpringPetClinicPractice
-  hosts: appserver
+  hosts: 172.31.35.31
   become: yes
   tasks:
     - name: Installation of open-JDK
