@@ -1,0 +1,16 @@
+---
+- name: SpringPetClinicPractice
+  hosts: appserver
+  become: yes
+  tasks:
+    - name: Installation of open-JDK
+      apt:
+        name: openjdk-11-jdk
+        update_cache: yes
+        state: present
+    - name: Create Springpetclinic directory
+      ansible.builtin.file:
+        path: /usr/share/springpetclinic
+        state: directory
+             
+        
