@@ -12,5 +12,27 @@
       ansible.builtin.file:
         path: /usr/share/springpetclinic
         state: directory
-             
+    - name: Get url from source
+      get_url:
+        url: https://referenceapplicationskhaja.s3-us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
+        dest: /usr/share/springpetclinic
+    - name: Create springpetuser
+      ansible.builtin.user:
+        name: springbootuser
+        password: springbootuser
+        state: present 
+    - name: Change ownership of the folder
+      ansible.builtin.file:
+        path: /usr/share/springpetclinic/spring-petclinic-2.4.2.jar
+        owner: springbootuser
+        mode: '500'
+        state: file
+    - name: copy a file
+      ansible.builtin.copy:
+        src: springpetclinic.service
+        dest: /etc/systemd/system/springpetclinic.service
+        
+
+                
+
         
